@@ -1,6 +1,42 @@
 body{
     text-align: center;
-}
-h1{
     font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1{
+    margin: 1em;
+}
+
+.text{
+    margin: 0.6em;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+}
+
+#board{
+    width: 480px;
+    height: 480px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+#board *{
+    box-sizing: border-box;
+}
+
+.row{
+    border: none;
+    display: flex;
+}
+
+.cell{
+    border: 1px solid black;
+    background-color: #FEBB6C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
