@@ -115,7 +115,6 @@ const fin_chk = function () {
 }
 
 const lay = function(){
-    document.getElementById('board_size').disabled = true;
     const nx = parseInt(this.id.split('-')[1])
     const ny = parseInt(this.id.split('-')[0])
     const turn = lay_count % 2
@@ -132,7 +131,7 @@ const lay = function(){
             nowcell.appendChild(getimg(color_list[turn]))
             nowcell.children[0].onload = fin_chk
             board_state[ny][nx] = turn
-            
+            document.getElementById('board_size').disabled = true
         }
     }
 }
