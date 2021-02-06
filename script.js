@@ -96,8 +96,11 @@ const fin_chk = function () {
             break
     }
     // console.log(nxt_can)
-    if (nxt_can[lay_count % 2] === false) {
-        if (nxt_can[(lay_count + 1) % 2] === false) {
+    // console.log(nxt_can)
+    // console.log(nxt_can[lay_count % 2])
+    // console.log(nxt_can[(lay_count + 1) % 2])
+    if (!nxt_can[lay_count % 2]) {
+        if (!nxt_can[(lay_count + 1) % 2]) {
             let result = `서로 둘 곳이 없으므로 게임이 종료됩니다.\n흑 ${left_count[0]}점, 백 ${left_count[1]}점으로 `
             result += `${left_count[0] > left_count[1] ? '흑의 승리입니다.' : left_count[0] < left_count[1] ? '백의 승리입니다.' : '비겼습니다.'}\n`
             result += `다시 시작하려면 '확인'을 누르세요.`
@@ -112,6 +115,7 @@ const fin_chk = function () {
 }
 
 const lay = function(){
+    document.getElementById('board_size').disabled = true;
     const nx = parseInt(this.id.split('-')[1])
     const ny = parseInt(this.id.split('-')[0])
     const turn = lay_count % 2
