@@ -16,6 +16,8 @@ window.addEventListener('load', () => {
 silde_bar.addEventListener('change', (event) => {
     cell_count = parseInt(event.target.value)
     build_board(cell_count)
+    lay_count = 0
+    document.body.className = 'black'
 })
 
 function build_board(size){
@@ -111,6 +113,7 @@ const fin_chk = function () {
         else {
             alert(`${color_hangul[lay_count % 2]}이 둘 곳이 없으므로 ${color_hangul[(lay_count + 1) % 2]}의 차례로 넘어갑니다.`)
             lay_count++
+            document.body.className = color_list[lay_count % 2]
         }
     }
 }
@@ -126,6 +129,7 @@ const lay = function(){
         }
         if (can) {
             lay_count++
+            document.body.className = color_list[lay_count % 2]
             left_count[turn]++
             nowcell = document.getElementById(ny + '-' + nx)
             nowcell.innerHTML = ''
