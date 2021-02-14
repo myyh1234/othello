@@ -101,6 +101,7 @@ const fin_chk = function () {
     // console.log(nxt_can[(lay_count + 1) % 2])
     if (!nxt_can[lay_count % 2]) {
         if (!nxt_can[(lay_count + 1) % 2]) {
+            document.getElementById('board_size').disabled = false
             let result = `서로 둘 곳이 없으므로 게임이 종료됩니다.\n흑 ${left_count[0]}점, 백 ${left_count[1]}점으로 `
             result += `${left_count[0] > left_count[1] ? '흑의 승리입니다.' : left_count[0] < left_count[1] ? '백의 승리입니다.' : '비겼습니다.'}\n`
             result += `다시 시작하려면 '확인'을 누르세요.`
@@ -171,22 +172,6 @@ const search = function(x, y, turn, d, change){
         return 0
     }
 }
-
-// const check = function(x, y, turn){
-//     let can = false
-//     for (let i = 0; i < 8; i++){
-//         can |= search(x + dx[i], y + dy[i], turn, i, true) > 1
-//     }
-//     if (can){
-//         lay_count++
-//         left_count[turn]++
-//         nowcell = document.getElementById(y + '-' + x)
-//         nowcell.innerHTML = ''
-//         nowcell.appendChild(getimg(color_list[turn]))
-//         board_state[y][x] = turn
-//     }
-    
-// }
 
 function getimg(color, trans=false){
     const ret = document.createElement('img')
